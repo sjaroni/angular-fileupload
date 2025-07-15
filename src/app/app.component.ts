@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { DropzoneComponent } from "./dropzone/dropzone.component";
+import { DropzoneComponent } from "./components/dropzone/dropzone.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DropzoneComponent],
+  imports: [ DropzoneComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

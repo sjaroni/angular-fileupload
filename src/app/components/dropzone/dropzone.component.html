@@ -1,0 +1,37 @@
+<div class="container" appDnd (fileDropped)="onFileDropped($event)">
+  <input
+    type="file"
+    #fileDropRef
+    id="fileDropRef"
+    multiple
+    (change)="fileBrowseHandler($event)"
+  />
+  <img src="/images/upload-file.svg" alt="Upload Files" />
+  <h3>Datei hierher ziehen</h3>
+  <h3>oder</h3>
+  <label for="fileDropRef">Datei auswählen</label>
+</div>
+<div class="files-list">
+  @for (file of files; track $index) {
+
+  <div class="single-file">
+    <img src="/images/file.svg" width="45px" alt="file" />
+    <div class="info">
+      <h4 class="name">
+        {{ file?.name }}
+      </h4>
+      <p class="size">
+        {{ formatBytes(file?.size) }}
+      </p>
+      <app-progress [progress]="file?.progress"></app-progress>
+    </div>
+    <img
+      src="/images/delete-file.svg"
+      class="delete"
+      width="20px"
+      alt="file"
+      (click)="deleteFile($index)"
+    />
+  </div>
+  }
+</div>
